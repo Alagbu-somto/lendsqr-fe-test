@@ -1,0 +1,127 @@
+@mixin text($weight, $size, $line, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line;
+  color: $color;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Avenir Next";
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .login-img {
+    width: 95%;
+  }
+  header {
+    img {
+      width: 28%;
+    }
+    margin: -3rem 0rem 3rem 2.5rem;
+  }
+  .login-left {
+    margin-left: 2.5rem;
+  }
+  .login-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
+    width: 50%;
+    height: 100vh;
+    form {
+      h1 {
+        margin: 0 0 0 13%;
+        @include text(700, 40px, 55px, #213f7d);
+        letter-spacing: -0.04em;
+      }
+      p {
+        margin: 0 0 2rem 13%;
+        @include text(400, 20px, 27px, #545f7d);
+      }
+      .input {
+        width: 60%;
+        padding: 5px;
+        margin-left: 13%;
+        margin-bottom: 2rem;
+        background: #ffffff;
+        border: 2px solid rgba(84, 95, 125, 0.15);
+        border-radius: 5px;
+        span {
+          @include text(600, 12px, 16px, #39cdcc);
+          text-transform: uppercase;
+        }
+        input {
+          width: 80%;
+          height: 2rem;
+          border: none;
+        }
+        input:focus {
+          outline: none;
+        }
+      }
+      .input:focus-within {
+        outline: #213f7d;
+        border: 1px solid #213f7d;
+      }
+      .login-bottom {
+        margin-left: 13%;
+        span {
+          @include text(600, 12px, 16px, #39cdcc);
+          display: block;
+          margin: -10px 0 20px;
+        }
+        button {
+          width: 71%;
+          background: #39cdcc;
+          border-radius: 8px;
+          padding: 15px 0;
+          border: none;
+          @include text(600, 14px, 19px, #ffffff);
+          letter-spacing: 0.1em;
+        }
+      }
+    }
+  }
+}
+
+.dashboard {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    flex: 3;
+  }
+  .search {
+    flex: 6;
+    .search-box {
+      background: #ffffff;
+      opacity: 0.2;
+      border: 1px solid #213f7d;
+      border-radius: 8px;
+      width: 50%;
+      input {
+        height: 2vh;
+        width: 70%;
+        border: none;
+      }
+    }
+  }
+  ul {
+    flex: 3;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+}
