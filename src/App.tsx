@@ -1,4 +1,4 @@
-import Dashboad from "./pages/dashboad";
+import Dashboad from "./pages/dashboard/dashboad";
 import Login from "./pages/login";
 
 function App() {

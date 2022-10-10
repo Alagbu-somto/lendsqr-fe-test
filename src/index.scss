@@ -93,35 +93,3 @@ body {
     }
   }
 }
-
-.dashboard {
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    flex: 3;
-  }
-  .search {
-    flex: 6;
-    .search-box {
-      background: #ffffff;
-      opacity: 0.2;
-      border: 1px solid #213f7d;
-      border-radius: 8px;
-      width: 50%;
-      input {
-        height: 2vh;
-        width: 70%;
-        border: none;
-      }
-    }
-  }
-  ul {
-    flex: 3;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-  }
-}

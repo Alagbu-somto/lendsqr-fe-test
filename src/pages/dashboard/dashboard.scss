@@ -1,0 +1,193 @@
+@mixin text($weight, $size, $line, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line;
+  color: $color;
+}
+.dashboard {
+  header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+    .logo {
+      flex: 3;
+      margin-left: 30px;
+      img {
+        width: 45%;
+        height: auto;
+      }
+    }
+    .search {
+      flex: 6;
+      .search-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        input {
+          background: #ffffff;
+          border-radius: 8px;
+          color: #545f7d;
+          opacity: 0.2;
+          height: 2rem;
+          width: 100%;
+          border: 1px solid #213f7d;
+        }
+        span {
+          text-align: center;
+          position: absolute;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #39cdcc;
+          height: 2.1rem;
+          border-radius: 0 8px 8px 0;
+          width: 20%;
+        }
+      }
+    }
+    ul {
+      flex: 3;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 30px;
+      li {
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  .dashboard-body {
+    display: flex;
+  }
+  .dashboard-left {
+    flex: 2.3;
+    padding-top: 1rem;
+    background: #ffffff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      list-style: none;
+      text-align: left;
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        span {
+          margin-left: 10px;
+          @include text(400, 16px, 19px, #213f7d);
+        }
+      }
+      .sub-title {
+        margin-bottom: 1rem;
+        @include text(500, 12px, 14px, #545f7d);
+      }
+      .top {
+        margin: 6rem 0 3rem;
+      }
+    }
+  }
+  .dashboard-right {
+    flex: 9.5;
+    h1 {
+      margin: 9rem 0 2.5rem 4rem;
+      @include text(500, 24px, 28px, #213f7d);
+    }
+    .card-container {
+      display: flex;
+      margin: 0 0 2rem 3rem;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border: 1px solid rgba(33, 63, 125, 0.06);
+      box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+      border-radius: 4px;
+      width: 18%;
+      padding: 16px 0 10px 30px;
+      margin-left: 1.5rem;
+      span {
+        margin-bottom: 10px;
+      }
+      div {
+        margin-bottom: 10px;
+      }
+      .card-name {
+        @include text(500, 14px, 16px, #545f7d);
+        text-transform: uppercase;
+      }
+      .card-figure {
+        @include text(600, 24px, 28px, #213f7d);
+        text-transform: uppercase;
+      }
+    }
+    .table-container {
+      margin-left: 4.5rem;
+      width: 87%;
+      height: 60vh;
+      .row {
+        border-bottom: 1px solid rgba(33, 63, 125, 0.1) !important;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: left;
+
+        th {
+          @include text(600, 12px, 14px, #545f7d);
+          text-transform: uppercase;
+          padding-bottom: 20px;
+          .heading {
+            display: flex;
+            align-items: center;
+            span {
+              margin-right: 10px;
+            }
+          }
+        }
+        td {
+          padding: 22px 0px;
+          @include text(400, 14px, 16px, #545f7d);
+        }
+        .tab {
+          background: rgba(84, 95, 125, 0.06);
+          border-radius: 100px;
+          padding: 7px 20px;
+          color: #545f7d;
+        }
+      }
+    }
+    .dashboard-bottom {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      span {
+        display: block;
+        @include text(400, 14px, 16px, #545f7d);
+      }
+      .badge {
+        background: rgba(33, 63, 125, 0.1);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        margin: 0 7px;
+      }
+      .page-num,
+      .pagination {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
