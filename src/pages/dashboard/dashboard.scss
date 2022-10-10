@@ -7,6 +7,7 @@
 .dashboard {
   header {
     position: fixed;
+    z-index: 50;
     width: 100%;
     display: flex;
     align-items: center;
@@ -136,6 +137,7 @@
       margin-left: 4.5rem;
       width: 87%;
       height: 60vh;
+      position: relative;
       .row {
         border-bottom: 1px solid rgba(33, 63, 125, 0.1) !important;
       }
@@ -160,6 +162,10 @@
           padding: 22px 0px;
           @include text(400, 14px, 16px, #545f7d);
         }
+        .options {
+          cursor: pointer;
+          font-size: 20px;
+        }
         .tab {
           background: rgba(84, 95, 125, 0.06);
           border-radius: 100px;
@@ -183,11 +189,92 @@
         align-items: center;
         margin: 0 7px;
       }
-      .page-num,
+      .page-bottom,
       .pagination {
         display: flex;
         align-items: center;
+        svg {
+          cursor: pointer;
+        }
       }
+      .page-number {
+        margin: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.filter {
+  position: absolute;
+  top: 50px;
+  background: #ffffff;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  width: 27%;
+  form {
+    margin: 30px 0 0 8%;
+  }
+  .inpute-conatiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.3rem;
+    label {
+      margin-bottom: 5px;
+      @include text(500, 14px, 16px, #545f7d);
+    }
+    select,
+    input {
+      background: #ffffff;
+      opacity: 0.2;
+      border: 1px solid #213f7d;
+      border-radius: 8px;
+      height: 2rem;
+      width: 85%;
+      padding-left: 10px;
+    }
+    select {
+      height: 2.3rem;
+      width: 90%;
+    }
+  }
+  .btn-conatiner {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.3rem;
+    button {
+      border: 1px solid #545f7d;
+      border-radius: 8px;
+      padding: 12px 13%;
+      background: white;
+    }
+    .btn-right {
+      margin-left: 20px;
+      background: #39cdcc;
+    }
+  }
+}
+.menu {
+  position: absolute;
+  right: -10px;
+  top: 2rem;
+  background: #ffffff;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  width: 18%;
+  padding-top: 20px;
+  .menu-list {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    span {
+      margin-left: 10px;
+      @include text(500, 14px, 16px, #545f7d);
     }
   }
 }
