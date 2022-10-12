@@ -3,13 +3,14 @@ import activeUser from "../assets/icons/user-check.png";
 import blacklist from "../assets/icons/user-times.png";
 type top = {
   top: number;
+  view: any;
 };
 function Menu(props: top) {
   return (
     <div className="menu" style={{ top: props.top + "rem" }}>
       <div className="menu-list">
         <BsEye />
-        <span>View Details</span>
+        <span onClick={() => props.view(true)}>View Details</span>
       </div>
       <div className="menu-list">
         <img src={blacklist} alt="" />

@@ -4,6 +4,11 @@
   line-height: $line;
   color: $color;
 }
+@font-face {
+  font-family: "Avenir Next";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2729/AvenirNext_Variable.ttf")
+    format("truetype");
+}
 body {
   margin: 0;
   padding: 0;
@@ -15,6 +20,7 @@ body {
 }
 
 .login {
+  font-family: "Avenir Next";
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -12,6 +12,7 @@ import {
 } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import axios from "axios";
+import User from "./user";
 type post = {
   orgName: string;
   email: string;
@@ -19,10 +20,13 @@ type post = {
   createdAt: string;
   userName: string;
   lastActiveDate: string;
+  id: string;
 };
 function Dashboad() {
   const [posts, setPost] = useState<post[]>([]);
+  const [id, setId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [user, setUser] = useState<boolean>(false);
   const [currentPage, setCurentPage] = useState<number>(1);
   const postPerPage: number = 10;
   const indexOfNextPage: number = currentPage * postPerPage;
@@ -42,6 +46,9 @@ function Dashboad() {
     fetchData();
     setLoading(false);
   }, [indexOfFirstPage, indexOfNextPage]);
+  useEffect(() => {
+    id !== "" && setUser(true);
+  }, [id]);
 
   return (
     <div className="dashboard">
@@ -80,55 +87,66 @@ function Dashboad() {
             ))}
           </ul>
         </div>
+
         <div className="dashboard-right">
-          <h1>Users</h1>
-          <div className="card-container">
-            {CARD.map((item, i) => (
-              <Card
-                key={i}
-                name={item.name}
-                figure={item.figure}
-                icon={item.icon}
-              />
-            ))}
-          </div>
-          <div className="table-container">
-            {loading ? <h1>...loading</h1> : <UserTable post={posts} />}
-            <div className="dashboard-bottom">
-              <div className="page-bottom">
-                <span>Showing</span>
-                <span className="badge">
-                  100 <RiArrowDropDownLine fontSize={35} color="#213F7D" />
-                </span>
-                <span>out of 100</span>
+          {!user ? (
+            <div>
+              <h1>Users</h1>
+              <div className="card-container">
+                {CARD.map((item, i) => (
+                  <Card
+                    key={i}
+                    name={item.name}
+                    figure={item.figure}
+                    icon={item.icon}
+                  />
+                ))}
               </div>
-              <div className="pagination">
-                <MdOutlineArrowBackIos
-                  className="badge"
-                  color="#213F7D"
-                  onClick={() =>
-                    setCurentPage(currentPage === 1 ? 1 : currentPage - 1)
-                  }
-                />
-                {posts.map((item, i) => {
-                  return (
-                    <span
-                      key={i}
-                      className="page-number"
-                      onClick={() => paginate(i + 1)}
-                    >
-                      {i + 1}
+              <div className="table-container">
+                {loading ? (
+                  <h1>...loading</h1>
+                ) : (
+                  <UserTable post={posts} fn={setId} />
+                )}
+                <div className="dashboard-bottom">
+                  <div className="page-bottom">
+                    <span>Showing</span>
+                    <span className="badge">
+                      100 <RiArrowDropDownLine fontSize={35} color="#213F7D" />
                     </span>
-                  );
-                })}
-                <MdOutlineArrowForwardIos
-                  className="badge"
-                  color="#213F7D"
-                  onClick={() => setCurentPage(currentPage + 1)}
-                />
+                    <span>out of 100</span>
+                  </div>
+                  <div className="pagination">
+                    <MdOutlineArrowBackIos
+                      className="badge"
+                      color="#213F7D"
+                      onClick={() =>
+                        setCurentPage(currentPage === 1 ? 1 : currentPage - 1)
+                      }
+                    />
+                    {posts.map((item, i) => {
+                      return (
+                        <span
+                          key={i}
+                          className="page-number"
+                          onClick={() => paginate(i + 1)}
+                        >
+                          {i + 1}
+                        </span>
+                      );
+                    })}
+                    <MdOutlineArrowForwardIos
+                      className="badge"
+                      color="#213F7D"
+                      onClick={() => setCurentPage(currentPage + 1)}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <User id={id} back={setUser} />
+          )}
         </div>
       </div>
     </div>

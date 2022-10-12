@@ -4,7 +4,14 @@
   line-height: $line;
   color: $color;
 }
+@mixin shadow {
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+}
 .dashboard {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
   header {
     position: fixed;
     z-index: 50;
@@ -86,7 +93,7 @@
         margin-bottom: 2rem;
         span {
           margin-left: 10px;
-          @include text(400, 16px, 19px, #213f7d);
+          @include text(400, 15px, 19px, #213f7d);
         }
       }
       .sub-title {
@@ -111,9 +118,7 @@
     .card {
       display: flex;
       flex-direction: column;
-      background: #ffffff;
-      border: 1px solid rgba(33, 63, 125, 0.06);
-      box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+      @include shadow;
       border-radius: 4px;
       width: 18%;
       padding: 16px 0 10px 30px;
@@ -275,6 +280,146 @@
     span {
       margin-left: 10px;
       @include text(500, 14px, 16px, #545f7d);
+    }
+  }
+}
+.user-datails {
+  margin: 9rem 0 0 3.5rem;
+  .back {
+    display: flex;
+    align-items: center;
+    span {
+      margin-left: 1rem;
+      @include text(400, 16px, 19px, #545f7d);
+    }
+  }
+  .sub-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h3 {
+      @include text(500, 24px, 28px, #213f7d);
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      margin-right: 5%;
+      span {
+        display: block;
+        border: 1px solid #e4033b;
+        border-radius: 8px;
+        padding: 8px 15px;
+        @include text(600, 14px, 16px, #e4033b);
+      }
+      .active {
+        margin-left: 20px;
+        color: #39cdcc;
+        border: 1px solid #39cdcc;
+      }
+    }
+  }
+  .profile-card {
+    @include shadow();
+    border-radius: 4px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    div {
+      margin-left: 5%;
+      h2 {
+        @include text(500, 22px, 26px, #213f7d);
+        margin: 0 0 5px;
+      }
+      h5 {
+        @include text(400, 14px, 16px, #545f7d);
+        margin: 0;
+      }
+    }
+    .rating {
+      // margin-top: -10px;
+      h5 {
+        margin-bottom: 13px;
+      }
+      span {
+        text-align: left;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-right: 3px;
+          // font-size: 13px;
+        }
+      }
+    }
+    .profile-details {
+      margin-left: 3%;
+    }
+    .img-container {
+      text-align: center;
+      position: relative;
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      background: black;
+      opacity: 0.16;
+      margin-left: 1.7rem;
+      img {
+        border-radius: 50%;
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+  }
+  .profile-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    span {
+      @include text(400, 16px, 19px, rgba(0, 0, 0, 0.8));
+      cursor: pointer;
+      padding-bottom: 5px;
+    }
+    .focus {
+      border-bottom: 2px solid #39cdcc;
+      color: #39cdcc;
+    }
+  }
+}
+.personal-info {
+  @include shadow();
+  border-radius: 4px;
+  width: 92%;
+  margin-top: 1.5rem;
+  padding-left: 1.7rem;
+  .info {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      @include text(500, 15px, 19px, #213f7d);
+    }
+    .info-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto;
+    }
+    .info-normal {
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+    }
+    .info-box {
+      margin-right: 10%;
+      h5 {
+        @include text(400, 12px, 14px, #545f7d);
+        text-transform: uppercase;
+        margin: 0 0 10px;
+      }
+      h2 {
+        margin: 0 0 2rem;
+        color: #545f7d;
+      }
     }
   }
 }

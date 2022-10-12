@@ -2,29 +2,27 @@ import { BsFilter, BsThreeDotsVertical } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import Filter from "./Filter";
 import Menu from "./Menu";
-// type post = {
-//   orgName: string;
-//   email: string;
-//   phoneNumber: string;
-//   createdAt: string;
-//   userName: string;
-//   lastActiveDate: string;
-// };
 function UserTable(props: any) {
+  const { post, fn } = props;
   const [filter, setFilter] = useState<boolean>(false);
   const [menu, setMenu] = useState<boolean>(false);
+  const [view, setView] = useState<boolean>(false);
   const [top, setTop] = useState<number>(5);
-  const handlemenu = (i: number) => {
-    setTop(i * 4 - 2);
-    console.log(top);
-
+  const [userId, setUserId] = useState<string>("");
+  const handlemenu = (i: number, id: string) => {
+    setTop(i * 5 - 2.5);
     setMenu(true);
+    setUserId(id);
+    setView(false);
   };
+  useEffect(() => {
+    menu && view && fn(userId);
+  }, [fn, menu, userId, view]);
+
   return (
     <>
       {filter && <Filter />}
-      <div onClick={() => setMenu(false)}>{menu && <Menu top={top} />}</div>
-
+      <div>{menu && <Menu top={top} view={setView} />}</div>
       <table>
         <thead>
           <tr>
@@ -84,7 +82,7 @@ function UserTable(props: any) {
             </th>
           </tr>
         </thead>
-        {props.post.map((item: any, i: number) => (
+        {post.map((item: any, i: number) => (
           <tr key={i} className="row">
             <td>{item.orgName}</td>
             <td>{item.userName}</td>
@@ -94,7 +92,7 @@ function UserTable(props: any) {
             <td>
               <span className="tab">Inactive</span>
             </td>
-            <td className="options" onClick={() => handlemenu(i + 1)}>
+            <td className="options" onClick={() => handlemenu(i + 1, item?.id)}>
               <BsThreeDotsVertical />
             </td>
           </tr>
