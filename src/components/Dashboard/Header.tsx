@@ -18,7 +18,7 @@ export default function Header() {
         </div>
       </div>
       <ul>
-        <li>Docs</li>
+        <li className="header-text">Docs</li>
         <li>
           <MdOutlineNotifications fontSize={30} />
         </li>

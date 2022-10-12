@@ -99,3 +99,36 @@ body {
     }
   }
 }
+@media screen and (min-width: 870px) {
+  .login-left {
+    flex: 5;
+  }
+  .login-right {
+    flex: 5;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .login-left {
+    flex: 5;
+  }
+  .login-right {
+    flex: 6;
+  }
+}
+@media screen and (max-width: 670px) {
+  .login-left {
+    flex: 3;
+  }
+  .login-right {
+    flex: 9;
+  }
+}
+@media screen and (max-width: 488px) {
+  .login-left {
+    display: none;
+  }
+  .login-right {
+    flex: 17;
+  }
+}

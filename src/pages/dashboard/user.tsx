@@ -8,8 +8,6 @@ type user = {
   back: any;
 };
 function User(props: user) {
-  // console.log(props.id);
-
   const [user, setUser] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(false);
 
