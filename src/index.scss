@@ -24,6 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100vh;
   .login-img {
     width: 95%;
   }
@@ -101,6 +102,9 @@ body {
   }
 }
 @media screen and (min-width: 870px) {
+  .login {
+    overflow-y: hidden !important;
+  }
   .login-left {
     flex: 5;
   }

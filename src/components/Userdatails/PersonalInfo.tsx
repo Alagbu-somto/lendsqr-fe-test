@@ -47,8 +47,8 @@ function PersonalInfo() {
   // Fetch data from localStorage
   useEffect(() => {
     const User: any = localStorage.getItem("user");
-    const userDetails: Userdatails = JSON.parse(User);
-    setUser(userDetails);
+    const userDetails: Userdatails = User && JSON.parse(User);
+    userDetails && setUser(userDetails);
   }, []);
 
   return (

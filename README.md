@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# ## Available Scripts
+
+## Project Description
+
+The lendersqr frontend-test is a lending application test built in other to test my ability to code as a front-end dev. it was built using react typscript and sass. it comprises of 3 major pages such as the login page, dashboard page and user page. The application pulls a dummy data of users from the lendersqr api which is displayed on the uesers dashboard and user details which is displayed on the user page.its a good project if your looking to test your code skills as a dev.
+
+## Getting Started with Lendersqr frontend-test
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Cloning the Project Repository
+
+After Cloning the repository using git clone command then url link provided on the repo, type npm install to add all dependences and npm start to start project and your good to go.
 
 ## Available Scripts
 
