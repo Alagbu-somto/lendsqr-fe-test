@@ -7,22 +7,23 @@ type user = {
   id: string;
   back: any;
 };
+
 function User(props: user) {
-  const [user, setUser] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(false);
 
+  // Fetch data from Api
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const User: any = await axios.get(
+      const user: any = await axios.get(
         `https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${props.id}`
       );
-      setUser(User.data);
+      user.data && localStorage.setItem("user", JSON.stringify(user.data));
     };
     fetchData();
     setLoading(false);
-  }, []);
-  // console.log(user);
+  }, [props.id]);
+
   return (
     <div className="user-datails">
       <div className="back">
@@ -38,8 +39,14 @@ function User(props: user) {
           <span className="active">Activate User</span>
         </div>
       </div>
-      <UserProfileCard user={user} />
-      <PersonalInfo user={user} />
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          <UserProfileCard />
+          <PersonalInfo />
+        </>
+      )}
     </div>
   );
 }

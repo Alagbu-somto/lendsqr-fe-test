@@ -2,28 +2,16 @@ import React, { useState } from "react";
 import loginImg from "../components/assets/login-test.png";
 import logo from "../components/assets/logo-test.png";
 export default function Login() {
-  type inputs = {
-    email: string;
-    password: string;
-  };
-  const [formInput, setFormInput] = useState<inputs>({
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value, name } = e.target;
-    setFormInput((prev: inputs) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(formInput);
-    setFormInput({ email: "", password: "" });
+    localStorage.setItem("isLoggingin", JSON.stringify({ email, password }));
+    setEmail("");
+    setPassword("");
+    window.location.href = "/dashboard";
   };
-
   return (
     <section className="login">
       <div className="login-left">
@@ -41,8 +29,8 @@ export default function Login() {
               type="email"
               name="email"
               placeholder="Email"
-              value={formInput.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -51,8 +39,8 @@ export default function Login() {
               type="password"
               name="password"
               placeholder="password"
-              value={formInput.password}
-              onChange={handleChange}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <span>show</span>

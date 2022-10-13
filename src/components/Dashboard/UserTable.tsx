@@ -82,21 +82,39 @@ function UserTable(props: any) {
             </th>
           </tr>
         </thead>
-        {post.map((item: any, i: number) => (
-          <tr key={i} className="row">
-            <td>{item.orgName}</td>
-            <td>{item.userName}</td>
-            <td>{item.email}</td>
-            <td>{item.phoneNumber}</td>
-            <td>May 15, 2020 10:00 AM</td>
-            <td>
-              <span className="tab">Inactive</span>
-            </td>
-            <td className="options" onClick={() => handlemenu(i + 1, item?.id)}>
-              <BsThreeDotsVertical />
-            </td>
-          </tr>
-        ))}
+        <tbody>
+          {post.map((item: any, i: number) => (
+            <tr key={i} className="row">
+              <td>{item.orgName}</td>
+              <td>{item.userName}</td>
+              <td>{item.email}</td>
+              <td
+                style={{ cursor: "context-menu" }}
+                onClick={() => setMenu(false)}
+              >
+                {item.phoneNumber}
+              </td>
+              <td
+                style={{ cursor: "context-menu" }}
+                onClick={() => setMenu(false)}
+              >
+                May 15, 2020 10:00 AM
+              </td>
+              <td
+                style={{ cursor: "context-menu" }}
+                onClick={() => setMenu(false)}
+              >
+                <span className="tab">Inactive</span>
+              </td>
+              <td
+                className="options"
+                onClick={() => handlemenu(i + 1, item?.id)}
+              >
+                <BsThreeDotsVertical />
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </>
   );

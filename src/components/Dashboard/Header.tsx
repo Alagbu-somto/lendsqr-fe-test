@@ -25,7 +25,7 @@ export default function Header() {
         <li>
           <img src={avater} alt="" />
         </li>
-        <li>Adedeji</li>
+        <li className="header-last">Adedeji</li>
       </ul>
     </header>
   );

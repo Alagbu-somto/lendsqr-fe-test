@@ -93,18 +93,29 @@
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
     ul {
       margin: 0;
-      padding-left: 20px;
+      padding-left: 0;
       list-style: none;
       text-align: left;
+      .logout {
+        border-top: 1px solid rgba(33, 63, 125, 0.1);
+        @include text(400, 16px, 19px, #213f7d);
+      }
       li {
         display: flex;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        padding-left: 20px;
         span {
           margin-left: 10px;
           @include text(400, 15px, 19px, #213f7d);
           padding-right: 5px;
         }
+      }
+      .pressed {
+        background: rgba(57, 205, 204, 0.06);
+        border-left: 4px solid #39cdcc;
       }
       .sub-title {
         margin-bottom: 1rem;
@@ -303,6 +314,7 @@
   .back {
     display: flex;
     align-items: center;
+    cursor: pointer;
     span {
       margin-left: 1rem;
       @include text(400, 16px, 19px, #545f7d);
@@ -430,10 +442,12 @@
         @include text(400, 12px, 14px, #545f7d);
         text-transform: uppercase;
         margin: 0 0 10px;
+        word-break: break-word !important;
       }
       h2 {
         margin: 0 0 2rem;
         color: #545f7d;
+        word-break: break-word !important;
       }
     }
   }
@@ -533,14 +547,25 @@
     }
   }
   header {
+    .header-last {
+      display: none;
+    }
     ul {
+      flex: 2 !important;
+      margin-right: 5px !important;
       li {
         font-size: 12px !important;
       }
     }
   }
+  .search {
+    flex: 6 !important;
+  }
   .search-box {
     width: 100% !important;
+    span {
+      min-width: 30px;
+    }
     input {
       font-size: 10px !important;
     }
@@ -572,16 +597,17 @@
     }
     .profile-card {
       width: 100% !important;
-      overflow-x: scroll;
+      min-width: 250px;
     }
     .profile {
       div {
-        margin-left: 8% !important;
+        margin-left: 3% !important;
         h2 {
           font-size: 12px !important;
         }
         h5 {
           font-size: 10px !important;
+          word-wrap: break-word;
         }
       }
       .profile-details {
@@ -597,8 +623,10 @@
       }
     }
     .profile-bottom {
-      padding-left: 150px;
+      display: grid !important;
+      grid-template-columns: auto auto auto !important;
       white-space: nowrap;
+
       span {
         margin-left: 5px !important ;
         font-size: 10px !important;
@@ -611,7 +639,6 @@
     .info {
       h2 {
         font-size: 12px !important;
-        word-break: break-word;
       }
       .info-normal,
       .info-container {

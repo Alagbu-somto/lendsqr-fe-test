@@ -1,5 +1,56 @@
-function PersonalInfo(props: any) {
-  const { user } = props;
+import { useState, useEffect } from "react";
+
+export type Guarantor = {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  gender: string;
+  address: string;
+};
+export type Education = {
+  level: string;
+  employmentStatus: string;
+  sector: string;
+  duration: string;
+  officeEmail: string;
+  monthlyIncome: string[];
+  loanRepayment: string;
+  email: string;
+};
+export type Profile = {
+  address: string;
+  avatar: string;
+  bvn: string;
+  currency: String;
+  firstName: string;
+  gender: string;
+  lastName: string;
+  phoneNumber: string;
+};
+export interface Userdatails {
+  accountBalance: string;
+  accountNumber: string;
+  createdAt: string;
+  education: Education;
+  email: string;
+  guarantor: Guarantor;
+  id: string;
+  lastActiveDate: string;
+  orgName: string;
+  phoneNumber: string;
+  profile: Profile;
+  socials: { facebook: string; instagram: string; twitter: string };
+  userName: string;
+}
+function PersonalInfo() {
+  const [user, setUser] = useState<Userdatails | null>(null);
+  // Fetch data from localStorage
+  useEffect(() => {
+    const User: any = localStorage.getItem("user");
+    const userDetails: Userdatails = JSON.parse(User);
+    setUser(userDetails);
+  }, []);
+
   return (
     <div className="personal-info">
       <div className="info">
@@ -11,11 +62,11 @@ function PersonalInfo(props: any) {
           </div>
           <div className="info-box">
             <h5>Phone Number</h5>
-            <h2>{user.phoneNumber}</h2>
+            <h2>{user?.phoneNumber}</h2>
           </div>
           <div className="info-box">
             <h5>Email Address</h5>
-            <h2>{user.email}</h2>
+            <h2>{user?.email}</h2>
           </div>
           <div className="info-box">
             <h5>Bvn</h5>
@@ -104,11 +155,11 @@ function PersonalInfo(props: any) {
           </div>
           <div className="info-box">
             <h5>Email Address</h5>
-            <h2>{user?.guarantor?.email}</h2>
+            <h2></h2>
           </div>
           <div className="info-box">
             <h5>Relationship</h5>
-            <h2>{user?.guarantor?.relationship}</h2>
+            <h2>single</h2>
           </div>
         </div>
       </div>
