@@ -82,7 +82,7 @@ function UserTable(props: any) {
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody onClick={() => setFilter(false)}>
           {post.map((item: any, i: number) => (
             <tr key={i} className="row">
               <td>{item.orgName}</td>

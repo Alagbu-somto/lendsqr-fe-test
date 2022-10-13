@@ -163,6 +163,28 @@ function PersonalInfo() {
           </div>
         </div>
       </div>
+      <div className="info">
+        <div className="info-normal">
+          <div className="info-box">
+            <h5>full Name</h5>
+            <h2>
+              {user?.guarantor?.firstName + " " + user?.guarantor?.lastName}
+            </h2>
+          </div>
+          <div className="info-box">
+            <h5>Phone Number</h5>
+            <h2>{user?.guarantor?.phoneNumber}</h2>
+          </div>
+          <div className="info-box">
+            <h5>Email Address</h5>
+            <h2>none</h2>
+          </div>
+          <div className="info-box">
+            <h5>Relationship</h5>
+            <h2>single</h2>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
