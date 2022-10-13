@@ -155,7 +155,7 @@ function PersonalInfo() {
           </div>
           <div className="info-box">
             <h5>Email Address</h5>
-            <h2></h2>
+            <h2>none</h2>
           </div>
           <div className="info-box">
             <h5>Relationship</h5>
