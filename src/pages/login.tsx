@@ -4,6 +4,7 @@ import logo from "../components/assets/logo-test.png";
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -36,14 +37,14 @@ export default function Login() {
           </div>
           <div className="input">
             <input
-              type="password"
+              type={showPassword ? "test" : "password"}
               name="password"
               placeholder="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span>show</span>
+            <span onClick={() => setShowPassword(!showPassword)}>show</span>
           </div>
           <div className="login-bottom">
             <span>FORGOT PASSWORD?</span>
